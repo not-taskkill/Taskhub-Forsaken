@@ -1,5 +1,3 @@
--- obfs is crazy with this
-
 repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer
 
 local function missing(t, f, fallback)
@@ -270,5 +268,7 @@ end
 Hitboxes.ChildAdded:Connect(function(Kid: BasePart)
 	if Kid.BrickColor == InvalidHitbox then return end
 	
-	CreateImageSound()
+	if Kid.Name:find(LocalUser.Name) then
+		CreateImageSound()
+	end
 end)
